@@ -2,7 +2,7 @@
 
 Este projeto tem como objetivo desenvolver um modelo de *machine learning* capaz de prever a saída (churn/attrition) de funcionários com base em dados de Recursos Humanos da IBM. 
 
-O projeto foi desenvolvido como parte do curso de Ciência de Dados.
+A rotatividade de funcionários é um custo significativo para as empresas, impactando a produtividade e o recrutamento. Este projeto visa mitigar isso identificando proativamente os funcionários em risco de demissão.
 
 ### 📊 Dataset
 
@@ -25,13 +25,19 @@ Ele contém informações sobre 1.470 funcionários, com variáveis como idade, 
 
 ### Histograma
 
+Análise de distruibuição e simetria dos dados.
+
 ![relatorios](relatorios/imagens/histograma.png)
 
 ### Boxplot 
 
+Análise de outliers e separação dos dados consiferando a coluna alvo.
+
 ![relatorios](relatorios/imagens/boxplot.png)
 
 ### HeatMap 
+
+Analisando as correlaç~eos entre as variáveis.
 
 ![relatorios](relatorios/imagens/heatmap.png)
 
@@ -59,6 +65,8 @@ Ele contém informações sobre 1.470 funcionários, com variáveis como idade, 
 
 ![relatorios](relatorios/imagens/resultados_teste.png)
 
+Resultados dos modelos treinados.
+
 ---
 
 ### 🧠 Resultado
@@ -68,6 +76,8 @@ O modelo de **Regressão Logística** foi o que apresentou melhor desempenho, eq
 Apesar do modelo SVC ter obtido um melhor resultado de score, o LogistcRegression foi escolhido devido ter resultados melhores nas métricas como: recall, menor tempo de treinamento e por ser de mais fácil interpretação.
 
 ![relatorios](relatorios/imagens/resultado_modelos.png)
+
+Resultados dos modelos treinados.
 
 ---
 
@@ -81,7 +91,7 @@ Apesar do modelo SVC ter obtido um melhor resultado de score, o LogistcRegressio
 
 ### 📌 Observações
 
-Este projeto é de caráter acadêmico e demonstra conhecimentos em análise de dados, visualização e machine learning aplicados a um problema de negócios.
+Este projeto acadêmico demonstra conhecimentos em análise de dados, visualização e machine learning aplicados a um problema de negócios.
 
 ---
 
@@ -105,7 +115,7 @@ Com isso podemos definir algum tipo de plano de ação, como por exemplo:
     - Necessidade de investimento tecnológico
 - Possibilidade de diminuir as viagens de begócios.
     - Como isso afeta a equipe de vendas?
-= Como a renda mensal de cada setor e nível da empresa se comprar com o mercado?
+= Como a renda mensal de cada setor e nível da empresa se comparam com o mercado?
 
 
 
