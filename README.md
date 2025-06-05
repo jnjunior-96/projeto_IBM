@@ -89,7 +89,7 @@ Este projeto é de caráter acadêmico e demonstra conhecimentos em análise de 
 ```
 ├── .env               <- Arquivo de variáveis de ambiente (não versionar)
 ├── .gitignore         <- Arquivos e diretórios a serem ignorados pelo Git
-├── ambiente.yml       <- O arquivo de requisitos para reproduzir o ambiente de análise
+├── environment.yml       <- O arquivo de requisitos para reproduzir o ambiente de análise
 ├── LICENSE            <- Licença
 ├── README.md          <- README principal para desenvolvedores que usam este projeto.
 |
@@ -130,7 +130,7 @@ Este projeto é de caráter acadêmico e demonstra conhecimentos em análise de 
     a. Caso esteja utilizando o `conda`, exporte as dependências do ambiente para o arquivo `ambiente.yml`:
 
       ```bash
-      conda env export > ambiente.yml
+      conda env export > environment.yml
       ```
 
 
