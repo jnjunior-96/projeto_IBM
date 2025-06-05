@@ -4,6 +4,16 @@ import streamlit as st
 from joblib import load
 
 from notebooks.src.config import DADOS_TRATADOS, MODELO_FINAL
+from notebooks.src.auxiliares import (
+    niveis_educacionais_texto,
+    area_fomacao_texto,
+    niveis_satisfacao_texto,
+    niveis_vida_trabalho_texto,
+    generos_texto,
+    departamentos_texto,
+    cargos_texto,
+    viagem_texto
+    )
 
 @st.cache_data
 def carregar_dados():
@@ -15,42 +25,6 @@ def carregar_modelo():
 
 df = carregar_dados()
 modelo = carregar_modelo()
-
-niveis_educacionais_texto = {
-    1: "Ensino Médio",
-    2: "Tecnólogo",
-    3: "Graduação",
-    4: "Mestrado",
-    5: "Doutorado",
-}
-
-area_fomacao_texto = {
-    "Human Resources": "Recursos Humanos",
-    "Life Sciences": "Ciências da Vida",
-    "Marketing": "Marketing",
-    "Medical": "Medicina",
-    "Other": "Outros",
-    "Technical Degree": "Diploma Técnico"
-}
-
-niveis_satisfacao_texto = {
-    1: "Baixo",
-    2: "Médio",
-    3: "Alto",
-    4: "Muito Alto",
-}
-
-niveis_vida_trabalho_texto = {
-    1: "Ruim",
-    2: "Bom",
-    3: "Melhor",
-    4: "Superior",
-}
-
-generos_texto = {
-    "Female": "Feminino",
-    "Male": "Masculino",
-}
 
 generos = sorted(df["Gender"].unique())
 niveis_educacionais = sorted(df["Education"].unique())
@@ -127,13 +101,14 @@ with st.container(border=True):
     coluna_esquerda, coluna_direita = st.columns(2)
 
     with coluna_esquerda:
-        widget_departamento = st.selectbox("Departamento", departamentos)
-        widget_viagem_negocios = st.selectbox("Viagem Negócios", viagem_negocios)
+        widget_departamento = st.selectbox("Departamento", departamentos,format_func= lambda texto: departamentos_texto[texto])
+        widget_viagem_negocios = st.selectbox("Viagem Negócios", viagem_negocios, format_func=lambda viagem: viagem_texto[viagem])
 
     with coluna_direita:
         widget_cargo = st.selectbox(
             "Cargo",
-            sorted(df[df["Department"] == widget_departamento]["JobRole"].unique())
+            sorted(df[df["Department"] == widget_departamento]["JobRole"].unique()),
+            format_func= lambda cargo: cargos_texto[cargo]
         )
 
         widget_hora_extra = st.radio("Horas extras", hora_extra, horizontal=True)
@@ -193,7 +168,7 @@ with st.container(border=True):
         widget_balanco_vida_trabalho = st.selectbox(
             "Balanço vida-trabalho",
             vida_trabalho,
-            format_func=lambda numero: niveis_satisfacao_texto[numero]
+            format_func=lambda numero: niveis_vida_trabalho_texto[numero]
         )
 
         widget_envolvimento_trabalho = st.selectbox("Envolvimento no Trabalho", envolvimento_trabalho)

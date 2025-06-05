@@ -83,6 +83,31 @@ Apesar do modelo SVC ter obtido um melhor resultado de score, o LogistcRegressio
 
 Este projeto é de caráter acadêmico e demonstra conhecimentos em análise de dados, visualização e machine learning aplicados a um problema de negócios.
 
+---
+
+### 🧠 Conclusões
+
+Alguns pontos podem ser destacados com esse estudo:
+
+Váriaveis que mais tem relevância para sáida dos funcionários (churn = yes):
+  - **Horas Extras( OverTime = yes)**
+  - **Estado civil Solteiro (MaritalStatus_Single)**
+  - **Viagem de negócios frequentemente (BusinessTravel_Travel_Frequently)**
+
+Com isso podemos definir algum tipo de plano de ação, como por exemplo:
+
+**Plano de Ação**
+
+- Avaliar os motivos que levam os funcionários a fazerem hora extra.
+    - Mão de obra insuficiente
+    - Falta de organização institucional
+    - Falta de treinamento
+    - Necessidade de investimento tecnológico
+- Possibilidade de diminuir as viagens de begócios.
+    - Como isso afeta a equipe de vendas?
+= Como a renda mensal de cada setor e nível da empresa se comprar com o mercado?
+
+
 
 ## Organização do projeto
 
