@@ -118,6 +118,10 @@ Com isso podemos definir algum tipo de plano de ação, como por exemplo:
 = Como a renda mensal de cada setor e nível da empresa se comparam com o mercado?
 
 
+## Streamlit
+
+![relatorios](relatorios/imagens/streamlit.mp4.gif)
+
 
 ## Organização do projeto
 
