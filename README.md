@@ -1,12 +1,88 @@
-# Modelo de projeto de ciência de dados
+## 💼 Predição de Churn de Funcionários - IBM HR Analytics
 
-Modelo de projeto de ciência de dados para ser utilizado como referência em projetos
-futuros. Desenvolvido por mim, [Francisco Bustamante](https://github.com/chicolucio),
-para alunos iniciantes em ciência de dados de meus cursos e mentorias.
+Este projeto tem como objetivo desenvolver um modelo de *machine learning* capaz de prever a saída (churn/attrition) de funcionários com base em dados de Recursos Humanos da IBM. 
 
-Inspiração: [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
+O projeto foi desenvolvido como parte do curso de Ciência de Dados.
 
-Clique no botão **Use this template** para criar um novo repositório com base neste modelo.
+### 📊 Dataset
+
+O dataset utilizado foi obtido no Kaggle:
+[IBM HR Analytics Employee Attrition & Performance](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)
+
+Ele contém informações sobre 1.470 funcionários, com variáveis como idade, cargo, tempo de empresa, satisfação no trabalho, entre outras.
+
+
+### 🔍 Etapas do Projeto
+
+#### 1. Análise Exploratória de Dados (EDA)
+
+* Análise univariada e bivariada das variáveis.
+* Verificação de dados ausentes e tratamento de inconsistências.
+* Visualizações para entender padrões de attrition.
+* Correlações entre variáveis.
+
+---
+
+### Histograma
+
+![relatorios](relatorios/imagens/histograma.png)
+
+### Boxplot 
+
+![relatorios](relatorios/imagens/boxplot.png)
+
+### HeatMap 
+
+![relatorios](relatorios/imagens/heatmap.png)
+
+---
+
+#### 2. Pré-processamento
+
+* Codificação de variáveis categóricas.
+* Normalização de dados numéricos.
+* Separação entre features e target.
+* Divisão entre dados de treino e teste.
+
+
+---
+#### 3. Modelagem Preditiva
+
+* Teste com diferentes algoritmos de classificação.
+* **Modelo final escolhido:** `LogisticRegression`
+* Avaliação com métricas como:
+
+  * Acurácia
+  * Matriz de Confusão
+  * ROC AUC
+  * Precisão e Recall
+
+![relatorios](relatorios/imagens/resultados_teste.png)
+
+---
+
+### 🧠 Resultado
+
+O modelo de **Regressão Logística** foi o que apresentou melhor desempenho, equilibrando simplicidade e performance. Ele se mostrou eficaz na detecção de funcionários com maior probabilidade de sair da empresa.
+
+Apesar do modelo SVC ter obtido um melhor resultado de score, o LogistcRegression foi escolhido devido ter resultados melhores nas métricas como: recall, menor tempo de treinamento e por ser de mais fácil interpretação.
+
+![relatorios](relatorios/imagens/resultado_modelos.png)
+
+---
+
+### 🛠️ Tecnologias Utilizadas
+
+* Python 3
+* Pandas, NumPy
+* Matplotlib, Seaborn
+* Scikit-learn
+* Jupyter Notebook
+
+### 📌 Observações
+
+Este projeto é de caráter acadêmico e demonstra conhecimentos em análise de dados, visualização e machine learning aplicados a um problema de negócios.
+
 
 ## Organização do projeto
 
@@ -14,7 +90,7 @@ Clique no botão **Use this template** para criar um novo repositório com base 
 ├── .env               <- Arquivo de variáveis de ambiente (não versionar)
 ├── .gitignore         <- Arquivos e diretórios a serem ignorados pelo Git
 ├── ambiente.yml       <- O arquivo de requisitos para reproduzir o ambiente de análise
-├── LICENSE            <- Licença de código aberto se uma for escolhida
+├── LICENSE            <- Licença
 ├── README.md          <- README principal para desenvolvedores que usam este projeto.
 |
 ├── dados              <- Arquivos de dados para o projeto.
@@ -22,14 +98,18 @@ Clique no botão **Use this template** para criar um novo repositório com base 
 ├── modelos            <- Modelos treinados e serializados, previsões de modelos ou resumos de modelos
 |
 ├── notebooks          <- Cadernos Jupyter. A convenção de nomenclatura é um número (para ordenação),
-│                         as iniciais do criador e uma descrição curta separada por `-`, por exemplo
-│                         `01-fb-exploracao-inicial-de-dados`.
+│                        as iniciais do criador e uma descrição curta separada por `-`, por exemplo
+│                         `01-jn-exploracao-inicial-de-dados`.
 │
 |   └──src             <- Código-fonte para uso neste projeto.
 |      │
 |      ├── __init__.py  <- Torna um módulo Python
 |      ├── config.py    <- Configurações básicas do projeto
 |      └── graficos.py  <- Scripts para criar visualizações exploratórias e orientadas a resultados
+|      └── auxiliares.py   <- função auxiliar
+|      └── models.py   <- funções auxiliares para construção de pipeline e grid search
+|      └── models_rus.py   <- funções auxiliares para construção de pipeline e grid search, versão para under sampling
+|
 |
 ├── referencias        <- Dicionários de dados, manuais e todos os outros materiais explicativos.
 |
@@ -42,7 +122,7 @@ Clique no botão **Use this template** para criar um novo repositório com base 
 1. Faça o clone do repositório que será criado a partir deste modelo.
 
     ```bash
-    git clone ENDERECO_DO_REPOSITORIO
+    git clone https://github.com/jnjunior-96/projeto_IBM.git
     ```
 
 2. Crie um ambiente virtual para o seu projeto utilizando o gerenciador de ambientes de sua preferência.
@@ -53,34 +133,11 @@ Clique no botão **Use this template** para criar um novo repositório com base 
       conda env export > ambiente.yml
       ```
 
-    b. Caso esteja utilizando outro gerenciador de ambientes, exporte as dependências
-    para o arquivo `requirements.txt` ou outro formato de sua preferência. Adicione o
-    arquivo ao controle de versão, removendo o arquivo `ambiente.yml`.
 
-3. Verifique o arquivo `notebooks/01-fb-exemplo.ipynb` para exemplos
-de uso do código.
-4. Renomeie o arquivo `notebooks/01-fb-exemplo.ipynb` para um nome
-mais apropriado ao seu projeto. E siga a convenção de nomenclatura para os demais
-notebooks.
-5. Remova arquivos de exemplo e adicione os arquivos de dados e notebooks do seu
-projeto.
-6. Verifique o arquivo `notebooks/src/config.py` para configurações básicas do projeto.
-Modifique conforme necessário, adicionando ou removendo caminhos de arquivos e
-diretórios.
-7. Atualize o arquivo `referencias/01_dicionario_de_dados.md` com o dicionário de dados
-do seu projeto.
-8. Atualize o `README.md` com informações sobre o seu projeto.
-9. Adicione uma licença ao projeto. Clique
-[aqui](https://docs.github.com/pt/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
-se precisar de ajuda para escolher uma licença.
-10. Renomeie o arquivo `.env.exemplo` para `.env`
-11. Adicione variáveis de ambiente sensíveis ao arquivo `.env`.
+### ✉️ Contato
 
-Por padrão, o arquivo `.gitignore` já está configurado para ignorar arquivos de dados e
-arquivos de Notebook (para aqueles que usam ferramentas como
-[Jupytext](https://jupytext.readthedocs.io/en/latest/) e similares). Adicione ou remova
-outros arquivos e diretórios do `.gitignore` conforme necessário. Caso deseje adicionar
-forçadamente um Notebook ao controle de versão, faça um commit forçado com o
-comando `git add --force NOME_DO_ARQUIVO.ipynb`.
+Caso queira entrar em contato:
 
-Para mais informações sobre como usar Git e GitHub, [clique aqui](https://cienciaprogramada.com.br/2021/09/guia-definitivo-git-github/). Sobre ambientes virtuais, [clique aqui](https://cienciaprogramada.com.br/2020/08/ambiente-virtual-projeto-python/).
+* **Nome:** \[José Nivaldo]
+* **LinkedIn:** \[https://www.linkedin.com/in/jnjunior96/]
+* **E-mail:** \[jnjunior96@outlook.com]
